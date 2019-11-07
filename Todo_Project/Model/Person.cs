@@ -8,6 +8,7 @@ namespace Todo_Project.Model
     {
         private string firstName;
         private string lastName;
+        private int personId;
         public int PersonId { get; private set; }
         
         public string FirstName
@@ -17,7 +18,7 @@ namespace Todo_Project.Model
                 return firstName;
             }
             
-            private set
+            set
             {
                 bool checkLetter = true;
                 if (value.Length > 0 && value.Length < 60 && value != null)
@@ -43,7 +44,6 @@ namespace Todo_Project.Model
                     throw new ArgumentException("Name is too long or short.");
                 }            
             }
-        
         }
 
         public string LastName
@@ -53,7 +53,7 @@ namespace Todo_Project.Model
                 return lastName;
             }
 
-            private set
+            set
             {
                 bool checkLetter = true;
                 if (value.Length > 0 && value.Length < 60 && value != null)
@@ -80,13 +80,12 @@ namespace Todo_Project.Model
                     throw new ArgumentException("Name is too long or short.");
                 }
             }
-
         }
         
         
         public Person (string firstname, string lastname) //Constructor
         {
-            PersonId=1;
+            PersonId = 1;
             //PersonId = PersonSequencer.NextPersonId;
             FirstName = firstname;
             LastName = lastname;
