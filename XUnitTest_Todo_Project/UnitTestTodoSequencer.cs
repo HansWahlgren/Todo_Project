@@ -4,20 +4,20 @@ using Todo_Project.Data;
 
 namespace XUnitTest_Todo_Project
 {
-    public class UnitTestPersonSequencer
+    public class UnitTestTodoSequencer
     {
         [Fact]
         public void Reset_to_zero()
         {
             //Arrange
-            int personId = 15;
+            int todoId = 15;
 
             //Act
-            PersonSequencer.Reset();
-            personId=PersonSequencer.NextPersonId();
+            TodoSequencer.Reset();
+            todoId = TodoSequencer.NextTodoId();
 
             //Assert
-            Assert.Equal(1, personId  );
+            Assert.Equal(1, todoId);
         }
     }
 }

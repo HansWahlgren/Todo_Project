@@ -36,8 +36,7 @@ namespace Todo_Project.Model
 
         public Todo(string description) //Constructor
         {
-            
-            //TodoId = TodoSequencer.NextTodoId();
+            TodoId = TodoSequencer.NextTodoId();
             Description = description;
         }
     }
