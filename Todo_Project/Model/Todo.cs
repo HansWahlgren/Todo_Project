@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Todo_Project.Data;
 
 namespace Todo_Project.Model
 {
@@ -35,8 +36,8 @@ namespace Todo_Project.Model
 
         public Todo(string description) //Constructor
         {
-            TodoId = 1;
-            //TodoId = TodoSequencer.NextTodoId;
+            
+            //TodoId = TodoSequencer.NextTodoId();
             Description = description;
         }
     }

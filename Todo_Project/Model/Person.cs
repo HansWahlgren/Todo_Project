@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Todo_Project.Data;
 
 namespace Todo_Project.Model
 {
@@ -85,8 +86,8 @@ namespace Todo_Project.Model
         
         public Person (string firstname, string lastname) //Constructor
         {
-            PersonId = 1;
-            //PersonId = PersonSequencer.NextPersonId;
+            
+            PersonId = PersonSequencer.NextPersonId();
             FirstName = firstname;
             LastName = lastname;
 
