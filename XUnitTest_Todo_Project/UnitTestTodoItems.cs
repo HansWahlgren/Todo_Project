@@ -83,5 +83,50 @@ namespace XUnitTest_Todo_Project
             //Assert
             Assert.Empty(allArray);
         }
+        /* UNIT TESTIN PART 2*/
+
+        [Fact]
+        public void FindByDoneStatus_Ok()
+        {
+            //Arrange
+            Todo todo1 = TodoItems.AddNewTodo("Eat a burger");
+            Todo todo2 = TodoItems.AddNewTodo("Buy another beer");
+            Todo todo3 = TodoItems.AddNewTodo("Get a coffee");
+            Todo todo4 = TodoItems.AddNewTodo("Send dad a bottle");
+
+            //Act
+            Todo[] todoArray = TodoItems.FindAll();
+            todoArray[1].Done = true;
+            todoArray[3].Done = true;
+            Todo[] doneArray = TodoItems.FindByDoneStatus(true);
+            //Assert
+            Assert.Equal(todoArray[1].TodoId, doneArray[0].TodoId);
+            Assert.Equal(todoArray[3].TodoId, doneArray[1].TodoId);
+        }
+
+        [Fact]
+        public void FindByAssigneeStatus_Ok()
+        {
+            //Arrange
+            Todo todo1 = TodoItems.AddNewTodo("Eat a burger");
+            Todo todo2 = TodoItems.AddNewTodo("Buy another beer");
+            Todo todo3 = TodoItems.AddNewTodo("Get a coffee");
+            Todo todo4 = TodoItems.AddNewTodo("Send dad a bottle");
+
+
+
+            //Act
+            Person todoPerson = People.AddNewPerson("Bengan","Anderssen");
+            Todo[] todoArray = TodoItems.FindAll();
+            todoArray[0].Assignee = todoPerson;
+            todoArray[2].Assignee = todoPerson;
+
+            Todo[] findByAssigneeArray = TodoItems.FindByAssignee(todoPerson.PersonId);
+            
+            //Assert
+            
+            Assert.Equal(todoPerson, findByAssigneeArray[0].Assignee);
+            Assert.Equal(todoPerson, findByAssigneeArray[1].Assignee);
+        }
     }
 }

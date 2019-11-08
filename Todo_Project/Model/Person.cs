@@ -10,7 +10,18 @@ namespace Todo_Project.Model
         private string firstName;
         private string lastName;
         private int personId;
-        public int PersonId { get; private set; }
+        public int PersonId
+        {
+            get
+            {
+                return personId;
+            }
+            
+            private set
+            {
+                personId = value;
+            }               
+        }
         
         public string FirstName
         {

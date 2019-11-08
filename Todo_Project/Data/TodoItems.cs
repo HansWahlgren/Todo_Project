@@ -47,5 +47,63 @@ namespace Todo_Project.Data
             todoArray = todoArrayEmpty;
             PersonSequencer.Reset();
         }
+        public static Todo[] FindByDoneStatus(bool doneStatus)
+        {
+            List<Todo> doneStatusList = new List<Todo>();
+            
+            for (int i = 0; i < todoArray.Length; i++)
+            {
+                if (todoArray[i].Done == doneStatus)
+                {
+                    doneStatusList.Add(todoArray[i]);
+                }
+            }
+            Todo[] newDoneArray = doneStatusList.ToArray();
+            return newDoneArray;            
+        }
+        public static Todo[] FindByAssignee(int personId)
+        {
+            List<Todo> AssigneeList = new List<Todo>();
+
+            for (int i = 0; i < todoArray.Length; i++)
+            {
+                if (todoArray[i].Assignee.PersonId == personId)//jämför med null
+                {
+                    AssigneeList.Add(todoArray[i]);
+                }
+            }
+            Todo[] newAssigneeArray = AssigneeList.ToArray();
+            return newAssigneeArray;
+        }
+
+        public static Todo[] FindByAssignee(Person assignee)
+        {
+            List<Todo> AssigneeList = new List<Todo>();
+
+            for (int i = 0; i < todoArray.Length; i++)
+            {
+                if (todoArray[i].Assignee.PersonId == assignee.PersonId)
+                {
+                    AssigneeList.Add(todoArray[i]);
+                }
+            }
+            Todo[] newAssigneeArray = AssigneeList.ToArray();
+            return newAssigneeArray;
+        }
+
+        public static Todo[] FindUnassignedTodoItems()
+        {
+            List<Todo> unAssignedList = new List<Todo>();
+
+            for (int i = 0; i < todoArray.Length; i++)
+            {
+                if (todoArray[i].Assignee == null)
+                {
+                    unAssignedList.Add(todoArray[i]);
+                }
+            }
+            Todo[] newAssigneeArray = unAssignedList.ToArray();
+            return newAssigneeArray;
+        }
     }
 }

@@ -12,7 +12,40 @@ namespace Todo_Project.Model
         private string description;
         private Person assignee;
 
-        public int TodoId { get; private set; }
+        public Person Assignee
+        {
+            get
+            {
+                return assignee;
+            }
+            set
+            {
+                assignee = value;
+            }
+        }
+
+        public bool Done
+        {
+            get
+            {
+                return done;
+            }
+            set
+            {
+                done = value;
+            }
+        }
+
+        public int TodoId
+        { get
+            {
+                return todoId;
+            }
+            private set
+            {
+                todoId = value;
+            }                
+        }
 
         public string Description
         {
@@ -38,6 +71,7 @@ namespace Todo_Project.Model
         {
             TodoId = TodoSequencer.NextTodoId();
             Description = description;
+            Done = false;
         }
     }
 }
