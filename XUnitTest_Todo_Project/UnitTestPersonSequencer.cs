@@ -17,7 +17,7 @@ namespace XUnitTest_Todo_Project
             personId=PersonSequencer.NextPersonId();
 
             //Assert
-            Assert.Equal(1, personId  );
+            Assert.Equal(1, personId);
         }
     }
 }
