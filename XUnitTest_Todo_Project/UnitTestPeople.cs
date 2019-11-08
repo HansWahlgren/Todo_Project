@@ -41,7 +41,7 @@ namespace XUnitTest_Todo_Project
         }
 
         [Fact]
-        public void checkFindById_Ok()
+        public void CheckFindById_Ok()
         {
             //Arrange
             Person person1 = People.AddNewPerson("Tjell", "Andersson");
@@ -56,7 +56,7 @@ namespace XUnitTest_Todo_Project
         }
 
         [Fact]
-        public void checkCreateNewPerson_Ok()
+        public void CheckCreateNewPerson_Ok()
         {
             //Arrange
             People.AddNewPerson("Malin", "Persson");
@@ -72,7 +72,7 @@ namespace XUnitTest_Todo_Project
         }
 
         [Fact]
-        public void checkPeopleClear_Ok()
+        public void CheckPeopleClear_Ok()
         {
             //Arrange
             People.AddNewPerson("Ida", "Åkesson");
