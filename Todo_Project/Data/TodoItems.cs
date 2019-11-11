@@ -67,9 +67,12 @@ namespace Todo_Project.Data
 
             for (int i = 0; i < todoArray.Length; i++)
             {
-                if (todoArray[i].Assignee.PersonId == personId)//jämför med null
+                if(todoArray[i].Assignee != null)
                 {
-                    AssigneeList.Add(todoArray[i]);
+                    if (todoArray[i].Assignee.PersonId == personId)//jämför med null
+                    {
+                        AssigneeList.Add(todoArray[i]);
+                    }
                 }
             }
             Todo[] newAssigneeArray = AssigneeList.ToArray();
@@ -82,9 +85,12 @@ namespace Todo_Project.Data
 
             for (int i = 0; i < todoArray.Length; i++)
             {
-                if (todoArray[i].Assignee.PersonId == assignee.PersonId)
+                if (todoArray[i].Assignee != null)
                 {
-                    AssigneeList.Add(todoArray[i]);
+                    if (todoArray[i].Assignee.PersonId == assignee.PersonId)
+                    {
+                        AssigneeList.Add(todoArray[i]);
+                    }
                 }
             }
             Todo[] newAssigneeArray = AssigneeList.ToArray();
