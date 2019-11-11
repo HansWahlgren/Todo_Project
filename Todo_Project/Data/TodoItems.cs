@@ -111,5 +111,22 @@ namespace Todo_Project.Data
             Todo[] newAssigneeArray = unAssignedList.ToArray();
             return newAssigneeArray;
         }
+        public static void RemoveTodoItem(int indexNumber)
+        {
+            List<Todo> nonRemovedTodoList = new List<Todo>();
+            for (int i = 0; i < todoArray.Length; i++)
+            {
+                if (todoArray[i].TodoId == indexNumber)
+                {
+                    Array.Clear(todoArray,i,1);
+                }
+                else
+                {
+                    nonRemovedTodoList.Add(todoArray[i]);
+                }
+            }
+            Todo[] newTodoArray = nonRemovedTodoList.ToArray();
+            todoArray = newTodoArray;
+        }
     }
 }

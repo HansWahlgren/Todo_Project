@@ -86,5 +86,26 @@ namespace XUnitTest_Todo_Project
             //Assert
             Assert.Empty(allArray);
         }
+        [Fact]
+        public void CheckRemovePerson_Ok()
+        {
+            //Arrange
+            People.AddNewPerson("Gustav","Jönsson");
+            People.AddNewPerson("Erik", "Philipsson");
+            People.AddNewPerson("Jocke", "Hjarmsson");
+            People.AddNewPerson("Edvin", "Andersson");
+            Person[] personFullArray = People.FindAll();
+
+            //Act
+            People.RemovePerson(1);
+            People.RemovePerson(3);
+            Person[] nonRemovedPeopleArray = People.FindAll();
+
+            //Assert
+            Assert.Equal(personFullArray[1], nonRemovedPeopleArray[0]);
+            Assert.Equal("Erik", nonRemovedPeopleArray[0].FirstName);
+            Assert.Equal(personFullArray[3], nonRemovedPeopleArray[1]);
+            Assert.Equal("Edvin", nonRemovedPeopleArray[1].FirstName);
+        }
     }
 }

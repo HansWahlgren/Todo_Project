@@ -47,6 +47,22 @@ namespace Todo_Project.Data
             personArray=personArrayEmpty;
             PersonSequencer.Reset();
         }
-       
+        public static void RemovePerson(int indexNumber)
+        {
+            List<Person> nonRemovedPeopleList = new List<Person>();
+            for (int i = 0; i < personArray.Length; i++)
+            {
+                if (personArray[i].PersonId == indexNumber)
+                {
+                    Array.Clear(personArray, i, 1);
+                }
+                else
+                {
+                    nonRemovedPeopleList.Add(personArray[i]);
+                }
+            }
+            Person[] newPersonArray = nonRemovedPeopleList.ToArray();
+            personArray = newPersonArray;
+        }
     }
 }

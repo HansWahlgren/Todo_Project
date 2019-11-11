@@ -175,5 +175,26 @@ namespace XUnitTest_Todo_Project
             Assert.Equal(todo2, findByUnAssigneeArray[0]);
             Assert.Equal(todo4, findByUnAssigneeArray[1]);
         }
+        [Fact]
+        public void CheckRemoveTodoItem_Ok()
+        {
+            //Arrange
+            TodoItems.AddNewTodo("Find a salad");
+            TodoItems.AddNewTodo("Eat Chili con carne");
+            TodoItems.AddNewTodo("Drink some water");
+            TodoItems.AddNewTodo("Finish the assignment");
+            Todo[] todoFullArray = TodoItems.FindAll();
+
+            //Act
+            TodoItems.RemoveTodoItem(1);
+            TodoItems.RemoveTodoItem(3);
+            Todo[] nonRemovedTodoArray = TodoItems.FindAll();
+
+            //Assert
+            Assert.Equal(todoFullArray[1], nonRemovedTodoArray[0]);
+            Assert.Equal("Eat Chili con carne", nonRemovedTodoArray[0].Description);
+            Assert.Equal(todoFullArray[3], nonRemovedTodoArray[1]);
+            Assert.Equal("Finish the assignment", nonRemovedTodoArray[1].Description);
+        }
     }
 }
