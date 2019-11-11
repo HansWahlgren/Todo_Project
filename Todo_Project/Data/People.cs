@@ -30,14 +30,14 @@ namespace Todo_Project.Data
         }
         public static Person AddNewPerson(string firstname,string lastname)
         {
-            List<Person> personList = new List<Person>();
+            List<Person> personList = new List<Person>(); //Created a new list to uppdate personArray
             Person newPerson = new Person(firstname,lastname);
             for (int i = 0; i < personArray.Length; i++)
             {
                 personList.Add(personArray[i]);
             }
             personList.Add(newPerson);
-            Person[] newPersonArray = personList.ToArray();
+            Person[] newPersonArray = personList.ToArray(); 
             personArray = newPersonArray;
             return newPerson;
         }
@@ -49,7 +49,7 @@ namespace Todo_Project.Data
         }
         public static void RemovePerson(int indexNumber)
         {
-            List<Person> nonRemovedPeopleList = new List<Person>();
+            List<Person> nonRemovedPeopleList = new List<Person>(); //Created a new list to uppdate personArray
             for (int i = 0; i < personArray.Length; i++)
             {
                 if (personArray[i].PersonId == indexNumber)

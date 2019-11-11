@@ -30,7 +30,7 @@ namespace Todo_Project.Data
         }
         public static Todo AddNewTodo(string description)
         {
-            List<Todo> todoList = new List<Todo>();
+            List<Todo> todoList = new List<Todo>();  //Created a new list to uppdate TodoArray
             Todo newTodo = new Todo(description);
             for (int i = 0; i < todoArray.Length; i++)
             {
@@ -49,8 +49,8 @@ namespace Todo_Project.Data
         }
         public static Todo[] FindByDoneStatus(bool doneStatus)
         {
-            List<Todo> doneStatusList = new List<Todo>();
-            
+            List<Todo> doneStatusList = new List<Todo>(); //Created a new list to uppdate TodoArray
+
             for (int i = 0; i < todoArray.Length; i++)
             {
                 if (todoArray[i].Done == doneStatus)
@@ -63,13 +63,13 @@ namespace Todo_Project.Data
         }
         public static Todo[] FindByAssignee(int personId)
         {
-            List<Todo> AssigneeList = new List<Todo>();
+            List<Todo> AssigneeList = new List<Todo>(); //Created a new list to uppdate TodoArray
 
             for (int i = 0; i < todoArray.Length; i++)
             {
                 if(todoArray[i].Assignee != null)
                 {
-                    if (todoArray[i].Assignee.PersonId == personId)//jämför med null
+                    if (todoArray[i].Assignee.PersonId == personId)
                     {
                         AssigneeList.Add(todoArray[i]);
                     }

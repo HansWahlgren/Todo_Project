@@ -55,7 +55,7 @@ namespace Todo_Project.Model
             }
 
             set
-            {
+            {   //The string needs a value, and have a textlength of 1-499 chars.
                 if (value.Length > 0 && value.Length < 500 && value != null)
                 {
                         description = value;
@@ -69,7 +69,7 @@ namespace Todo_Project.Model
 
         public Todo(string description) //Constructor
         {
-            TodoId = TodoSequencer.NextTodoId();
+            TodoId = TodoSequencer.NextTodoId(); //Uses PersonSequencer to get next id.
             Description = description;
             Done = false;
         }

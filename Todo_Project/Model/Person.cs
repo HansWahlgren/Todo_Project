@@ -32,7 +32,7 @@ namespace Todo_Project.Model
             
             set
             {
-                bool checkLetter = true;
+                bool checkLetter = true; //The string needs a value, and have a textlength of 1-59 chars. 
                 if (value.Length > 0 && value.Length < 60 && value != null)
                 {
                     foreach (var item in value)
@@ -67,7 +67,7 @@ namespace Todo_Project.Model
 
             set
             {
-                bool checkLetter = true;
+                bool checkLetter = true; //The string needs a value, and have a textlength of 1-59 chars.
                 if (value.Length > 0 && value.Length < 60 && value != null)
                 {
 
@@ -98,7 +98,7 @@ namespace Todo_Project.Model
         
         public Person (string firstname, string lastname) //Constructor
         {
-            PersonId = PersonSequencer.NextPersonId();
+            PersonId = PersonSequencer.NextPersonId(); //Uses PersonSequencer to get next id. 
             FirstName = firstname;
             LastName = lastname;
         }
