@@ -17,9 +17,7 @@ namespace XUnitTest_Todo_Project
 
             //Assert
             Assert.Equal(description, testTodo.Description);
-
         }
-
 
         [Fact]
         public void CreateTodo_not_null()

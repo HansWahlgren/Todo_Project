@@ -7,16 +7,17 @@ namespace Todo_Project.Data
 {
     public class People
     {
-        
         private static Person[] personArray = new Person[0];
         public static int Size()
         {
             return personArray.Length;
         }
+
         public static Person[] FindAll()
         {
             return personArray;
         }
+
         public static Person FindById(int personId)
         {
            foreach (Person person in personArray)
@@ -28,9 +29,10 @@ namespace Todo_Project.Data
             }
             return null;
         }
+
         public static Person AddNewPerson(string firstname,string lastname)
         {
-            List<Person> personList = new List<Person>(); //Created a new list to uppdate personArray
+            List<Person> personList = new List<Person>(); //Created a new list to update personArray
             Person newPerson = new Person(firstname,lastname);
             for (int i = 0; i < personArray.Length; i++)
             {
@@ -41,15 +43,17 @@ namespace Todo_Project.Data
             personArray = newPersonArray;
             return newPerson;
         }
+
         public static void Clear()
         {
             Person[] personArrayEmpty = new Person[0];
             personArray=personArrayEmpty;
             PersonSequencer.Reset();
         }
+
         public static void RemovePerson(int indexNumber)
         {
-            List<Person> nonRemovedPeopleList = new List<Person>(); //Created a new list to uppdate personArray
+            List<Person> nonRemovedPeopleList = new List<Person>(); //Created a new list to update personArray
             for (int i = 0; i < personArray.Length; i++)
             {
                 if (personArray[i].PersonId == indexNumber)

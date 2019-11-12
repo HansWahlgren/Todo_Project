@@ -13,10 +13,12 @@ namespace Todo_Project.Data
         {
             return todoArray.Length;
         }
+
         public static Todo[] FindAll()
         {
             return todoArray;
         }
+
         public static Todo FindById(int TodoId)
         {
             foreach (Todo todo in todoArray)
@@ -28,6 +30,7 @@ namespace Todo_Project.Data
             }
             return null;
         }
+
         public static Todo AddNewTodo(string description)
         {
             List<Todo> todoList = new List<Todo>();  //Created a new list to uppdate TodoArray
@@ -41,15 +44,17 @@ namespace Todo_Project.Data
             todoArray = newTodoArray;
             return newTodo;
         }
+
         public static void Clear()
         {
             Todo[] todoArrayEmpty = new Todo[0];
             todoArray = todoArrayEmpty;
             PersonSequencer.Reset();
         }
+
         public static Todo[] FindByDoneStatus(bool doneStatus)
         {
-            List<Todo> doneStatusList = new List<Todo>(); //Created a new list to uppdate TodoArray
+            List<Todo> doneStatusList = new List<Todo>(); //Created a new list to update TodoArray
 
             for (int i = 0; i < todoArray.Length; i++)
             {
@@ -61,9 +66,10 @@ namespace Todo_Project.Data
             Todo[] newDoneArray = doneStatusList.ToArray();
             return newDoneArray;            
         }
+
         public static Todo[] FindByAssignee(int personId)
         {
-            List<Todo> AssigneeList = new List<Todo>(); //Created a new list to uppdate TodoArray
+            List<Todo> AssigneeList = new List<Todo>(); //Created a new list to update TodoArray
 
             for (int i = 0; i < todoArray.Length; i++)
             {
@@ -111,6 +117,7 @@ namespace Todo_Project.Data
             Todo[] newAssigneeArray = unAssignedList.ToArray();
             return newAssigneeArray;
         }
+
         public static void RemoveTodoItem(int indexNumber)
         {
             List<Todo> nonRemovedTodoList = new List<Todo>();

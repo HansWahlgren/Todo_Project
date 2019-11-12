@@ -19,7 +19,6 @@ namespace XUnitTest_Todo_Project
             //Assert
             Assert.Equal(firstName, testPerson.FirstName);
             Assert.Equal(lastName, testPerson.LastName);
-
         }
 
         [Fact]
