@@ -102,9 +102,9 @@ namespace XUnitTest_Todo_Project
             Person[] nonRemovedPeopleArray = People.FindAll();
 
             //Assert
-            Assert.Equal(personFullArray[1], nonRemovedPeopleArray[0]);
+            Assert.Equal(personFullArray[1].PersonId, nonRemovedPeopleArray[0].PersonId);
             Assert.Equal("Erik", nonRemovedPeopleArray[0].FirstName);
-            Assert.Equal(personFullArray[3], nonRemovedPeopleArray[1]);
+            Assert.Equal(personFullArray[3].PersonId, nonRemovedPeopleArray[1].PersonId);
             Assert.Equal("Edvin", nonRemovedPeopleArray[1].FirstName);
         }
     }

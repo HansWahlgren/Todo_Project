@@ -124,8 +124,8 @@ namespace XUnitTest_Todo_Project
             Todo[] findByAssigneeArray = TodoItems.FindByAssignee(todoPerson.PersonId);
             
             //Assert
-            Assert.Equal(todoPerson, findByAssigneeArray[0].Assignee);
-            Assert.Equal(todoPerson, findByAssigneeArray[1].Assignee);
+            Assert.Equal(todoPerson.FirstName, findByAssigneeArray[0].Assignee.FirstName);
+            Assert.Equal(todoPerson.LastName, findByAssigneeArray[1].Assignee.LastName);
         }
 
         [Fact]
@@ -146,8 +146,8 @@ namespace XUnitTest_Todo_Project
             Todo[] findByAssigneeArray = TodoItems.FindByAssignee(todoPerson);
 
             //Assert
-            Assert.Equal(todoPerson, findByAssigneeArray[0].Assignee);
-            Assert.Equal(todoPerson, findByAssigneeArray[1].Assignee);
+            Assert.Equal(todoPerson.FirstName, findByAssigneeArray[0].Assignee.FirstName);
+            Assert.Equal(todoPerson.LastName, findByAssigneeArray[1].Assignee.LastName);
         }
 
         [Fact]
@@ -168,8 +168,8 @@ namespace XUnitTest_Todo_Project
             Todo[] findByUnAssigneeArray = TodoItems.FindUnassignedTodoItems();
 
             //Assert
-            Assert.Equal(todo2, findByUnAssigneeArray[0]);
-            Assert.Equal(todo4, findByUnAssigneeArray[1]);
+            Assert.Equal(todo2.TodoId, findByUnAssigneeArray[0].TodoId);
+            Assert.Equal(todo4.TodoId, findByUnAssigneeArray[1].TodoId);
         }
 
         [Fact]
@@ -188,9 +188,9 @@ namespace XUnitTest_Todo_Project
             Todo[] nonRemovedTodoArray = TodoItems.FindAll();
 
             //Assert
-            Assert.Equal(todoFullArray[1], nonRemovedTodoArray[0]);
+            Assert.Equal(todoFullArray[1].TodoId, nonRemovedTodoArray[0].TodoId);
             Assert.Equal("Eat Chili con carne", nonRemovedTodoArray[0].Description);
-            Assert.Equal(todoFullArray[3], nonRemovedTodoArray[1]);
+            Assert.Equal(todoFullArray[3].TodoId, nonRemovedTodoArray[1].TodoId);
             Assert.Equal("Finish the assignment", nonRemovedTodoArray[1].Description);
         }
     }
