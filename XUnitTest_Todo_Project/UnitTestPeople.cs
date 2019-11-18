@@ -35,9 +35,9 @@ namespace XUnitTest_Todo_Project
             Person[] allArray = People.FindAll();
 
             //Assert
-            Assert.Equal(person1.LastName, allArray[0].LastName);
-            Assert.Equal(person2.PersonId, allArray[1].PersonId);
-            Assert.Equal(person3.FirstName, allArray[2].FirstName);
+            Assert.Equal(person1, allArray[0]);
+            Assert.Equal(person2, allArray[1]);
+            Assert.Equal(person3, allArray[2]);
         }
 
         [Fact]
@@ -68,7 +68,7 @@ namespace XUnitTest_Todo_Project
             Person[] allArray = People.FindAll();
 
             //Assert
-            Assert.Equal(allArray[allArray.Length-1].PersonId, chosenOne.PersonId);
+            Assert.Equal(allArray[allArray.Length-1], chosenOne);
         }
 
         [Fact]
@@ -102,10 +102,8 @@ namespace XUnitTest_Todo_Project
             Person[] nonRemovedPeopleArray = People.FindAll();
 
             //Assert
-            Assert.Equal(personFullArray[1].PersonId, nonRemovedPeopleArray[0].PersonId);
-            Assert.Equal("Erik", nonRemovedPeopleArray[0].FirstName);
-            Assert.Equal(personFullArray[3].PersonId, nonRemovedPeopleArray[1].PersonId);
-            Assert.Equal("Edvin", nonRemovedPeopleArray[1].FirstName);
+            Assert.Equal(personFullArray[1], nonRemovedPeopleArray[0]);
+            Assert.Equal(personFullArray[3], nonRemovedPeopleArray[1]);
         }
     }
 }

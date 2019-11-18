@@ -33,8 +33,8 @@ namespace XUnitTest_Todo_Project
             Todo[] allArray = TodoItems.FindAll();
 
             //Assert
-            Assert.Equal(todo1.Description, allArray[0].Description);
-            Assert.Equal(todo2.TodoId, allArray[1].TodoId);
+            Assert.Equal(todo1, allArray[0]);
+            Assert.Equal(todo2, allArray[1]);
         }
 
         [Fact]
@@ -65,7 +65,7 @@ namespace XUnitTest_Todo_Project
             Todo[] allArray = TodoItems.FindAll();
 
             //Assert
-            Assert.Equal(allArray[allArray.Length - 1].TodoId, chosenOne.TodoId);
+            Assert.Equal(allArray[allArray.Length - 1], chosenOne);
         }
 
         [Fact]
@@ -102,8 +102,8 @@ namespace XUnitTest_Todo_Project
             Todo[] doneArray = TodoItems.FindByDoneStatus(true);
 
             //Assert
-            Assert.Equal(todoArray[1].TodoId, doneArray[0].TodoId);
-            Assert.Equal(todoArray[3].TodoId, doneArray[1].TodoId);
+            Assert.Equal(todoArray[1], doneArray[0]);
+            Assert.Equal(todoArray[3], doneArray[1]);
         }
 
         [Fact]
@@ -124,8 +124,8 @@ namespace XUnitTest_Todo_Project
             Todo[] findByAssigneeArray = TodoItems.FindByAssignee(todoPerson.PersonId);
             
             //Assert
-            Assert.Equal(todoPerson.FirstName, findByAssigneeArray[0].Assignee.FirstName);
-            Assert.Equal(todoPerson.LastName, findByAssigneeArray[1].Assignee.LastName);
+            Assert.Equal(todoPerson, findByAssigneeArray[0].Assignee);
+            Assert.Equal(todoPerson, findByAssigneeArray[1].Assignee);
         }
 
         [Fact]
@@ -146,8 +146,8 @@ namespace XUnitTest_Todo_Project
             Todo[] findByAssigneeArray = TodoItems.FindByAssignee(todoPerson);
 
             //Assert
-            Assert.Equal(todoPerson.FirstName, findByAssigneeArray[0].Assignee.FirstName);
-            Assert.Equal(todoPerson.LastName, findByAssigneeArray[1].Assignee.LastName);
+            Assert.Equal(todoPerson, findByAssigneeArray[0].Assignee);
+            Assert.Equal(todoPerson, findByAssigneeArray[1].Assignee);
         }
 
         [Fact]
@@ -168,8 +168,8 @@ namespace XUnitTest_Todo_Project
             Todo[] findByUnAssigneeArray = TodoItems.FindUnassignedTodoItems();
 
             //Assert
-            Assert.Equal(todo2.TodoId, findByUnAssigneeArray[0].TodoId);
-            Assert.Equal(todo4.TodoId, findByUnAssigneeArray[1].TodoId);
+            Assert.Equal(todo2, findByUnAssigneeArray[0]);
+            Assert.Equal(todo4, findByUnAssigneeArray[1]);
         }
 
         [Fact]
@@ -188,10 +188,8 @@ namespace XUnitTest_Todo_Project
             Todo[] nonRemovedTodoArray = TodoItems.FindAll();
 
             //Assert
-            Assert.Equal(todoFullArray[1].TodoId, nonRemovedTodoArray[0].TodoId);
-            Assert.Equal("Eat Chili con carne", nonRemovedTodoArray[0].Description);
-            Assert.Equal(todoFullArray[3].TodoId, nonRemovedTodoArray[1].TodoId);
-            Assert.Equal("Finish the assignment", nonRemovedTodoArray[1].Description);
+            Assert.Equal(todoFullArray[1], nonRemovedTodoArray[0]);
+            Assert.Equal(todoFullArray[3], nonRemovedTodoArray[1]);
         }
     }
 }

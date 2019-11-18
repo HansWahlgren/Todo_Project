@@ -23,8 +23,8 @@ namespace XUnitTest_Todo_Project
         public void CreateTodo_not_null()
         {
             //Arrange
-            string description = "Go out with the dog";
-            string expected_error_msg = "";
+            string description = "";
+            string expected_error_msg = "Description is too long or short.";
             string error_msg = "";
 
             //Act
